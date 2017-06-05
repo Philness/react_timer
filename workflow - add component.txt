@@ -1,0 +1,23 @@
+COMPONENT WORKFLOW
+
+
+1. Create the component with your React.createClass.
+    A. Require React
+    B. Add module.exports
+    c. create the class, Double bracket, then render, then return
+    d. if the component has no children, you can use function(props) instead of creating a class.
+2. Add an alias to webpack.config with the path
+3. Require it in your app.jsx
+4. If it's a default component, place it in indexRoute
+5. If it's not a default component, place it in a child route under Main
+    A. Decide a name for the route that matches the component name
+    B. Make sure your main includes this.props.children
+    C. Make sure you link to it somewhere with the Link tag
+        1. Link tags allow you to set event listeners to see if that's the page you're on, and set an active style
+        2. You can check if a link is active by saying activeClassName = "active"
+        3. You can specify inline CSS in React with activeStyle ={{fontWeight: "bold"}}
+        4. You must use camelCase in react, no dashes allowed unless they're lodashes.
+    D. In Main.jsx, include the following:     var {Link, IndexLink} = require("react-router")
+        1. Link is used for non-default links
+        2. IndexLink is used for links that come up as the default route
+        3. This mostly only assist with styling
