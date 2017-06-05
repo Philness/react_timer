@@ -1,0 +1,45 @@
+INSTALLING TESTING MODULES
+npm install the following with --save-dev:
+    karma: The test runner
+    karma-chrome-launcher: Allows karma to use chrome to run your tests
+    karma-mocha: Lets karma and mocha talk to each other and share methods
+    karma-mocha-reporter: Gives you that neat little pass/fail display in your terminal
+    karma-sourcemap-loader: Allows you to debug your jsx rather than your massive bundle.js file
+    karma-webpack: Lets karma and webpack talk to each other
+    mocha: Additional testing methods
+    expect: Still more testing methods
+
+CONFIGURING KARMA
+    1. Make a new file in the root folder called karma.conf.js
+    2. Set module.exports equal to a function(config)
+    3. Do a config.set({}), which is a built-in method in karma
+    4. Inside of config.set({
+        browsers:['chrome'],   //which browser to use?
+        framework: ['mocha'],  //which testing library to use?
+        singleRun: true,  //run tests only once
+        files: ['app/tests/**/*.test.jsx'],  //Run all tests that end with .test.jsx in the test folder
+        preprocessors: {
+            'app/tests/**/*.test.jsx': ["webpack", "sourcemap"]  //make sure that it works with webpack, but doesn't look at bundle.js
+        },
+        reporters : ["mocha"],  //error&&success messages come from here
+        client:{
+            mocha:{
+                timeout:'5000'  //set a timeout if a test fails for a long time (5 s)
+            }
+        },
+        webpack: webpackConfig,  //point it to your webpack stuff
+        webpackServer:{         //no idea lol
+            noinfo:true
+        }
+    })
+    5. REMEMBER to put karma start next to test in package.json
+
+MAKING A NEW TEST FILE
+    1. Make a new file in the test directory
+    2. Require expect.
+    3. To group the tests, start with describe(COMPONENT NAME, ()=>{step 4 inside here})
+    4. To write the test:
+        A. start with it("WHAT THE TEST SHOULD DO IN ENGLISH", as your first argument
+        B. add a function as the second argument, it can be an arrow function
+        C. In the function write an expect(something).toBe(result), and you can write more than one to test more thouroughly
+    

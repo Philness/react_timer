@@ -10,10 +10,12 @@ GIT COMMANDS
     git commit -m 'message' = saves your stuff.
     git commit -a -m = Adds any files on the save list, then asks for a message, but only works on modified 
     git remote -v = shows all remote places the repository is being uploaded
-    git checkout = changes to a new brancch
+    git checkout = changes to a new branch
     git checkout -b = creates a new branch and switches to it
     git stash = rolls back changes since last push, but saves the changes
     git stash pop = makes all the saved changes, preferably to the new branch.
+
+    To create a new repository, go to your github, click new repository, and follow the directions.
 
 HEROKU COMMANDS
     heroku create = makes a heroku repository based on what you have uploaded.
