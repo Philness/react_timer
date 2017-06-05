@@ -13,11 +13,14 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 var {Route, Router, IndexRoute, hashHistory} = require("react-router")  //This is called "destructuring syntax"
 var Main = require('Main');
-
+var Timer = require("Timer");
+var Countdown = require("Countdown");
 //loading foundation here
 require("style!css!foundation-sites/dist/css/foundation.min.css");
 $(document).foundation();
 require("style!css!sass!applicationStyles")
+
+
 
 ReactDOM.render(
     // What are you rendering?  Where are you rendering it?
@@ -33,7 +36,11 @@ ReactDOM.render(
     //The default route should also use IndexRoute here, and IndexLink in the Nav.jsx
     <Router history = {hashHistory}>  
       <Route path = "/" component = {Main}>
+      <IndexRoute component = {Timer}></IndexRoute>
+      <Route path = "/countdown" component = {Countdown}></Route>
       </Route>
+      
+      
     </Router>, //You can autoclose this thing.
     document.getElementById("app")
   );

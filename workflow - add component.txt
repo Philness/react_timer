@@ -20,4 +20,4 @@ COMPONENT WORKFLOW
     D. In Main.jsx, include the following:     var {Link, IndexLink} = require("react-router")
         1. Link is used for non-default links
         2. IndexLink is used for links that come up as the default route
-        3. This mostly only assist with styling
+        3. Make sure all routes and index routes are within a route with path = "/", unless you want a reload in between.
