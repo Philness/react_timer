@@ -1,14 +1,13 @@
 .clock{
-    align-items:center;
+    align-items:center;  //center vertically
     background-color:$clock-bg-color;
     border:2px solid $clock-border-color;
-    border-radius: 50%;
+    border-radius: 50%;  //circle shape
     display: flex;
     height: 14rem;
-    justify-content:center;
+    justify-content:center;  //center horizontally
     margin: 4rem auto;
-    width: 14rem;  //same as height
-
+    width: 14rem;  //same as height to make a perfect circle
 }
 
 .clock-text{

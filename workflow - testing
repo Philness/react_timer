@@ -50,9 +50,22 @@ MAKING A NEW TEST FILE
         B. Load in the component to test, let (new var name) = testUtils.renderIntoDocument(<COMPONENT /)
             1. To pass in props, include (propertyName) = {value}, with braces.
         C. actually write the test, the expect function should read (new var name).(method to test)(args)
-        D. To make sure the text being rendered into the DOM is as expected:
-            1. Load in the new component as in 5B
-            2. Find it in the DOM with a jQuery function, var $el =  $(ReactDOM.findDOMNode(new component))
-            3. To pull the value, make sure it has a css className attached to it first
-            4. Select the class whose text you want with $el.find(".class-name").text() or .value()
-        
+
+TESTING TO SEE IF A COMPONENT GOT RENDERED
+    1. Load in the new component as in 5B
+    2. Find it in the DOM with a jQuery function, var $el =  $(ReactDOM.findDOMNode(new component))
+    3. To pull the value, make sure it has a css className attached to it first
+    4. Select the class whose text you want with $el.find(".class-name").text() or .value()
+    5. Write the expect function normally.
+
+TESTING TO SEE IF A FUNCTION GOT CALLED WHEN IT WAS SUPPOSED TO
+    1. Use expect to create a spy, use var spy = expect.createSpy()
+    2. Load in the component to test as in 5B, but
+        a. pass in a prop that matches the "onSet" function called in the child's "on" method
+        b. set that prop equal to your {spy}
+    3. Find your component in the DOM using step 2 in the previous section.
+    4. decide what value you'd like to simulate submitting by setting (component var).refs.(key).value equal to your value.
+    5. To run the simulation, use testUtils.Simulate.submit($el.find("form")[0]), but you can probably find it by ID, because jquery.
+    6. Write your expect function as expect(spy).toHaveBeenCalled()
+        a. the method toHaveBeenCalledWith() will also ensure that the value was passed in correctly.
+        b. the method toHaveNotBeenCalled() will ensure that your component's input validation is blocking the stuff that doesn't belong.

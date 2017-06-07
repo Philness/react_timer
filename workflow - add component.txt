@@ -24,5 +24,6 @@ COMPONENT WORKFLOW
 6. If you intend to pass in any props:
     A. start by creating a getDefaultProps method, which is a function() that returns a {} containing key-value-pairs.
     B. create a propTypes:{} object, setting the default types of the getDefaultProps items to React.PropTypes.(type of var)
+        ***The object keeps bugging out, so I've been using propTypes: function(){return {key: value}} instead.
     C. To destructure any props you're going to use in the render, put var {(propertyName)} = this.props
     D. To call a method on any props, make sure to say this.(METHOD)(What to run the method on).

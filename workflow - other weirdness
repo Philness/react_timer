@@ -1,0 +1,12 @@
+REGEX
+    Use str.match(regex) to make sure that a string consists only of the characters you want.
+    regex starts and ends with //, with a [] set, saying the string has to match what's inside.
+    By default it only matches one character, end it with a star to make it match more than one.
+    The ^ character says that the starting character also must match.
+    The $ character says that the ending character also must match.
+
+PARSEINT
+    Use parseint(string, base) to change a string into a number.
+    If no base is specified, the number will be parsed to base 10.
+    Any number starting with 0x will be parsed to base 16.
+    Make sure to use regex beforehand to make sure that what you're passing is parse-worthy.

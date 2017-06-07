@@ -17,7 +17,8 @@ var Clock = React.createClass({
         if (seconds<10){seconds = "0"+seconds;}
         if (minutes<10){minutes = "0"+minutes;}
         return (minutes + ":" + seconds);
-},
+    },
+    
     render:function(){
         var {totalSeconds} = this.props;
         return(

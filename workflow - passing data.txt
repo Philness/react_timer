@@ -8,19 +8,22 @@ PART 1. In the child component that contains the form, do the following:
         3. Pull data from your form using this.refs.REF NAME.value
         4. Put in an if function to tell the function not to fire if the field is blank, that is, if the value.length isn't zero.
             a. Clear any filled form fields by setting the value to "".
-            b. Pass the data you just got to the parent, using this.props.((on))FUNCTION NAME(data)
+            b. Pass the data you just got to the parent, using this.props.((on))FUNCTION NAME THAT WILL BE USED IN PARENT(data)
+            c. If there is any other input validation you want to do, such as a regex match, do it before passing the data.
 
     B. Add an onSubmit property to the form, telling it which function to run.
         1. Put the function in braces, it's not a string like html usually has, since it's really jsx.
         2. Use the this. keyword before the function name
-
+        
     C. Add a "ref" name to the inputs that you intend to pass over to the Parent.
+        1. You can also add a ref and className for the form itself
+        2. Remember to specify the input type, usually type = "text".
 
 
 
 PART 2. In the parent function that contains the state, do the following:
 
-    A. Add a handling function to operate on the data from the form.v -
+    A. Add a handling function to operate on the data from the form. -
         1. The name of the handling function must be ((handle))FUNCTION NAME FROM 4b: function(data){}
         2. The handling function should now run this.setState{key: value}, drawing the values from the data.
 
@@ -42,14 +45,21 @@ PART 2. In the parent function that contains the state, do the following:
             b. set each property equal to the vars you made before the return.
 
 
-
 PART 3. In the child function that's going to display the new state, do the following:
+
     A. Pull the variables off of the property object before the render function.
         1. You can use {vars} = this.props again to generate new variables in the child.
         2. Make sure that the variable names you're going to use are consistent throughout all classes.
+
     B. Place the variables where you want them in the render function with {} around them.
 
-
+  ******************************************************************************************************************************
+    Summary: The form has an "on" function, which is defined in the form's JSX above render.
+                The "on" function points to an "onSet" function, which isn't really a function, but a prop in the parent
+            The parent's "onSet" prop points to a "handle" function, also in the parent.
+        The handle function calls setState({key: value}), which changes the parent's state, so it can be passed to other props.
+    The render function can then make calls to this.state
+    *****************************************************************************************************************************
 
 PART 4. To pass pieces of the web address:
     A. In <Weather.jsx>, to run the search ON something in the web address:
