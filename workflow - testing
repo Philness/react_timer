@@ -8,6 +8,7 @@ npm install the following with --save-dev:
     karma-webpack: Lets karma and webpack talk to each other
     mocha: Additional testing methods
     expect: Still more testing methods
+    react-addons-test-utils: still more testing methods
 
 CONFIGURING KARMA
     1. Make a new file in the root folder called karma.conf.js
@@ -36,10 +37,22 @@ CONFIGURING KARMA
 
 MAKING A NEW TEST FILE
     1. Make a new file in the test directory
-    2. Require expect.
+    2. Require react, react-dom, expect, jQuery (as a $), and react-addons-test-utils.  ALSO, require any component you want to test.
     3. To group the tests, start with describe(COMPONENT NAME, ()=>{step 4 inside here})
     4. To write the test:
         A. start with it("WHAT THE TEST SHOULD DO IN ENGLISH", as your first argument
         B. add a function as the second argument, it can be an arrow function
         C. In the function write an expect(something).toBe(result), and you can write more than one to test more thouroughly
-    
+        D. A good first test is expect(<COMPONENT>).toExist() to see if it's being recognized at all.
+        E. Each Method should have its own describe section.
+    5. To create re-usable tests with React:
+        A. Start by writing an it-statement
+        B. Load in the component to test, let (new var name) = testUtils.renderIntoDocument(<COMPONENT /)
+            1. To pass in props, include (propertyName) = {value}, with braces.
+        C. actually write the test, the expect function should read (new var name).(method to test)(args)
+        D. To make sure the text being rendered into the DOM is as expected:
+            1. Load in the new component as in 5B
+            2. Find it in the DOM with a jQuery function, var $el =  $(ReactDOM.findDOMNode(new component))
+            3. To pull the value, make sure it has a css className attached to it first
+            4. Select the class whose text you want with $el.find(".class-name").text() or .value()
+        

@@ -34,4 +34,5 @@ THE FILE SYSTEM
     3. In "base", make an scss file for the variables you're going to use for colors and margins and stuff
     4. In "components" make an scss file for each component to link the base variables to it
     5. import the files with @import "base/variables", which is ruby syntax(?)
-
+    6. Any time you want to style a new component, you need a new @import in the app.scss, and a new _(component named).scss
+    7. You can define any $variables to use in any other scss file in the base/variables.scss file.

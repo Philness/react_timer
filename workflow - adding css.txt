@@ -8,3 +8,5 @@ PART 2 - ADDING SASS
 A. npm install sass-loader and node-sass
 B. Change all your extensions to .scss in webpack config and in the directories
 C. Make sure you add a !sass in your require statements in app.jsx
+
+
