@@ -6,7 +6,7 @@ var Form = React.createClass({
     onFormSubmit:function(e){
         e.preventDefault();
         var stringSeconds = this.refs.seconds.value;
-        if (stringSeconds.match(/^[0-9]*$/)){
+        if (stringSeconds && stringSeconds.match(/^[0-9]*$/)){
             this.refs.seconds.value ="";
             this.props.onSetCountdown(parseInt(stringSeconds, 10));
 

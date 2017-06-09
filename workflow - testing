@@ -51,6 +51,11 @@ MAKING A NEW TEST FILE
             1. To pass in props, include (propertyName) = {value}, with braces.
         C. actually write the test, the expect function should read (new var name).(method to test)(args)
 
+TESTING IFA COMPONENT'S STATE CHANGES WHEN IT SHOULD
+    1. Load in the component as in step 5B
+    2. call the method with (component).(handle method)(props to pass in)
+    3.
+
 TESTING TO SEE IF A COMPONENT GOT RENDERED
     1. Load in the new component as in 5B
     2. Find it in the DOM with a jQuery function, var $el =  $(ReactDOM.findDOMNode(new component))
@@ -69,3 +74,7 @@ TESTING TO SEE IF A FUNCTION GOT CALLED WHEN IT WAS SUPPOSED TO
     6. Write your expect function as expect(spy).toHaveBeenCalled()
         a. the method toHaveBeenCalledWith() will also ensure that the value was passed in correctly.
         b. the method toHaveNotBeenCalled() will ensure that your component's input validation is blocking the stuff that doesn't belong.
+
+FOR ASYNCHRONOUS TESTING
+    1. place a (done) argument in the describe function
+    2. inside of your asynch function, place a done() method
