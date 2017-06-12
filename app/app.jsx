@@ -36,11 +36,9 @@ ReactDOM.render(
     //The default route should also use IndexRoute here, and IndexLink in the Nav.jsx
     <Router history = {hashHistory}>  
       <Route path = "/" component = {Main}>
-      <IndexRoute component = {Timer}></IndexRoute>
-      <Route path = "/countdown" component = {Countdown}></Route>
-      </Route>
-      
-      
+        <IndexRoute component = {Timer}></IndexRoute>
+        <Route path = "/countdown" component = {Countdown}></Route>
+      </Route>   
     </Router>, //You can autoclose this thing.
     document.getElementById("app")
   );

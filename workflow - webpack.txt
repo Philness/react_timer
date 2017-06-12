@@ -6,7 +6,7 @@ I. A server.js file in the root
     1. Goes like app.use(express.static("public"))
   c. A listen statement
 
-II. An index.html file in public
+II. An index.html file in the public directory
   a. A div with the id "app"
   b. A script tag for webpack's bundle.js, not the app.js
 

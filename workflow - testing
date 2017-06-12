@@ -61,6 +61,8 @@ TESTING TO SEE IF A COMPONENT GOT RENDERED
     2. Find it in the DOM with a jQuery function, var $el =  $(ReactDOM.findDOMNode(new component))
     3. To pull the value, make sure it has a css className attached to it first
     4. Select the class whose text you want with $el.find(".class-name").text() or .value()
+        a. To find text within a button, you can use $targetButton  = $el.find("button:contains(TARGET TEXT)")
+        b. To expect that the test finds something with the target text, you can expect $targetButton.length to not be zero.
     5. Write the expect function normally.
 
 TESTING TO SEE IF A FUNCTION GOT CALLED WHEN IT WAS SUPPOSED TO

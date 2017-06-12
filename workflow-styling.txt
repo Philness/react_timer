@@ -39,5 +39,5 @@ THE FILE SYSTEM
     7. You can define any $variables to use in any other scss file in the base/variables.scss file.
 
 FOUNDATION USEFUL STUFF
-    To use the grid system, place row on a wrapper div, and "column" on the inner divs
+    To use the grid system, place "row" on a wrapper div, and "column" on the inner divs
     Use small-centered to center it unconditionally, then medium- and large- follow by how many grid sectors you want to use.
