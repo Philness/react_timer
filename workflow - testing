@@ -80,3 +80,4 @@ TESTING TO SEE IF A FUNCTION GOT CALLED WHEN IT WAS SUPPOSED TO
 FOR ASYNCHRONOUS TESTING
     1. place a (done) argument in the describe function
     2. inside of your asynch function, place a done() method
+    3. You will mostly be testing handle-set functions this way

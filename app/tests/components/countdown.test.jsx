@@ -35,4 +35,25 @@ describe("passing states with handleSetCountdown", ()=>{
             }
         ,2001)
     })
+    it("shouldn't change the count when the clock is paused", (done) =>{
+        var countdown = testUtils.renderIntoDocument(<Countdown />)
+        countdown.handleSetCountdown(3)
+        countdown.handleStatusChange("paused")
+        setTimeout(() =>{
+            expect(countdown.state.count).toBe(3)
+            expect(countdown.state.countdownStatus).toBe("paused")
+            done()
+        }, 1003)
+    })
+
+        it("should change the count to zero when the clock is stopped", (done) =>{
+        var countdown = testUtils.renderIntoDocument(<Countdown />)
+        countdown.handleSetCountdown(3)
+        countdown.handleStatusChange("stopped")
+        setTimeout(() =>{
+            expect(countdown.state.count).toBe(0)
+            expect(countdown.state.countdownStatus).toBe("stopped")
+            done()
+        }, 1003)
+    })
 })
