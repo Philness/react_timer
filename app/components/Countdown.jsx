@@ -21,6 +21,9 @@ var Countdown = React.createClass({
         this.timer = setInterval(function(){
             var newCount = that.state.count - 1
             that.setState({count:(newCount>=0) ? newCount : 0})
+            if (newCount ===0){
+                that.setState({countdownStatus:"stopped"})
+            }
         }, 1000)
     },
     componentDidUpdate: function(oldProps, oldState){
@@ -37,6 +40,10 @@ var Countdown = React.createClass({
                     break;
             }
         }
+    },
+    componentWillUnmount:function(){
+        if(this.timer){clearInterval(this.timer)}
+        this.timer = undefined
     },
     handleStatusChange: function(newStatus){ //all this does is update state
         this.setState({countdownStatus:newStatus})  //but it does trigger component did update!
